@@ -1,0 +1,21 @@
+library.ieee;
+use ieee.std_logic_1164.all;
+entity car_status  is
+port(dist : in integer range 0 to 255;
+     motor_status : buffer bit_vector (1 downto 0);
+     servo_status : in bit_vector (1 downto 0));
+end;
+architecture behave of car_status  is
+begin
+    
+    process (distance)
+        if distance <= 20 then
+            if servo_status = "11" then -- block - forward
+                motor_status <= "00"; -- stops
+            elsif servo_status = "01" then -- block - left
+                motor_status <= "10"; -- turnning right
+            elsif servo_status = "10" then -- block - right
+                motor_status <= "01"; -- turnning left 
+        else
+            motor_status <= "11"; -- moves forward
+end behave;

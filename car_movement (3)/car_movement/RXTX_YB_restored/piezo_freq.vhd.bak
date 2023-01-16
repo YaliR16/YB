@@ -1,0 +1,20 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity piezo_freq is
+port ( clk_50MHz: in bit;  
+       fout : buffer bit);
+end;
+architecture behave of piezo_freq is
+begin
+	process (clk_50MHz)
+	begin
+		if clk_50MHz'event and clk_50MHz='1' then
+			if cnt<75757 then
+				cnt<=cnt+1;
+			else
+				cnt<=0;
+				f_out <= not f_out;
+			end if;
+		end if;
+	end process;
+end behave;

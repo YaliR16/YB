@@ -1,0 +1,6 @@
+
+State Machine - |rxtx|distance:inst18|state
+Name state.noel state.sofer state.wait4high 
+state.wait4high 0 0 0 
+state.sofer 0 1 1 
+state.noel 1 0 1 

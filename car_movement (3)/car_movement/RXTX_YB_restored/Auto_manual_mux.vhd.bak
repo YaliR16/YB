@@ -1,0 +1,14 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Auto_manual_mux is
+port (auto_manual:in bit;
+      manual_motors : in bit_vector(3 downto 0);
+		auto_motors : in bit_vector(3 downto 0);
+		motors_out: buffer bit_vector(3 downto 0));
+end;
+
+architecture behave of Auto_manual_mux is
+begin
+motors_out <= manual_motors when auto_manual = '1' else auto_motors;
+end behave;

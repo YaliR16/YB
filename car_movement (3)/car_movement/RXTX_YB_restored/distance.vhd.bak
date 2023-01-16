@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity distance is
+port ( clk_58Ms: in bit;
+		 echo : in bit;
+       dist : buffer integer 0 to 255);
+end;
+architecture behave of distance is
+signal cnt : integer range 0 to 255;
+begin
+process (clk_58Ms)
+begin
+if echo='1' then
+	if clk_58Ms's event and clk_58Ms = '1'then
+		cnt <= cnt + 1;
+	else if;
+else
+dist <=cnt;	
+end if;
+end process;
+end behave;

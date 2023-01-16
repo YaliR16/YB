@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity spliter is
+port (byte:in bit_vector (7 downto 0);
+      DC_MOTOR: out bit_vector (3 downto 0);
+		OTHER : out bit_vector(2 downto 0);
+		SERVO_MOTOR: out bit);
+end;
+
+architecture behave of half8 is
+begin
+OTHER<= byte(7 downto 5);
+SERVO_MOTOR <= byte(4)
+DC_MOTOR<= byte(3 downto 0);
+end behave;

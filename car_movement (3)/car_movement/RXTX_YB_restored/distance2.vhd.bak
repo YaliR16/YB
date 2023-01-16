@@ -1,0 +1,27 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity distance2 is
+port ( clk_58Ms : in bit;
+		 echo : in bit;
+       dist : out integer range 0 to 255);
+end;
+architecture behave of distance2 is
+type state_type is (wait4high,sofer,noel);
+signal state: state_type;
+signal cnt : integer range 0 to 255;
+signal a : bit;
+begin
+process (clk_58Ms)
+begin
+if echo = '1' then 
+if clk_58Ms'event and clk_58Ms = '1' then
+a = '1'
+cnt <= cnt + 1;
+end if;
+else 
+dist <= cnt;
+a = '0'
+if a = '0' then
+cnt <= 0
+end process;
+end behave;

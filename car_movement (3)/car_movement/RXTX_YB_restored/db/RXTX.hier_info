@@ -1,0 +1,848 @@
+|rxtx
+tx <= TX:inst6.tx_ser_out
+clk => boud:inst.clk_50MHz
+clk => clkdiv:inst9.clk
+clk => boudrate_echo:inst19.clk_50MHz
+clk => pwm_servo:inst17.clk_50MHz
+clk => clk_div_20_Hz:inst16.clk_50MHz
+clk => freq_trig:inst20.clk_50MHz
+clk => piezo_control:inst29.clk_50MHz
+clk => piezo_freq:inst28.clk_50MHz
+clk => pwm_motor:inst25.clk_50MHz
+clk => servo_status:inst26.clk_50MHz
+clk => pwm:inst1.clk_50MHz
+rst => TX:inst6.rst
+rst => my_rX:inst2.rst
+switch => switch_display:inst21.switch
+data_in[0] => switch_display:inst21.data_in[0]
+data_in[1] => switch_display:inst21.data_in[1]
+data_in[2] => switch_display:inst21.data_in[2]
+data_in[3] => switch_display:inst21.data_in[3]
+data_in[4] => switch_display:inst21.data_in[4]
+data_in[5] => switch_display:inst21.data_in[5]
+data_in[6] => switch_display:inst21.data_in[6]
+data_in[7] => switch_display:inst21.data_in[7]
+Echo => distance:inst18.echo
+servo <= pwm_servo:inst17.Fout
+Trig <= freq_trig:inst20.Fout
+piezo <= piezo_control:inst29.pwm_out
+led <= led:inst24.led
+highA[0] <= bin2hex:inst4.segment[0]
+highA[1] <= bin2hex:inst4.segment[1]
+highA[2] <= bin2hex:inst4.segment[2]
+highA[3] <= bin2hex:inst4.segment[3]
+highA[4] <= bin2hex:inst4.segment[4]
+highA[5] <= bin2hex:inst4.segment[5]
+highA[6] <= bin2hex:inst4.segment[6]
+RX => my_rX:inst2.rx_ser_in
+highB[0] <= bin2hex:inst8.segment[0]
+highB[1] <= bin2hex:inst8.segment[1]
+highB[2] <= bin2hex:inst8.segment[2]
+highB[3] <= bin2hex:inst8.segment[3]
+highB[4] <= bin2hex:inst8.segment[4]
+highB[5] <= bin2hex:inst8.segment[5]
+highB[6] <= bin2hex:inst8.segment[6]
+lowA[0] <= bin2hex:inst5.segment[0]
+lowA[1] <= bin2hex:inst5.segment[1]
+lowA[2] <= bin2hex:inst5.segment[2]
+lowA[3] <= bin2hex:inst5.segment[3]
+lowA[4] <= bin2hex:inst5.segment[4]
+lowA[5] <= bin2hex:inst5.segment[5]
+lowA[6] <= bin2hex:inst5.segment[6]
+lowB[0] <= bin2hex:inst10.segment[0]
+lowB[1] <= bin2hex:inst10.segment[1]
+lowB[2] <= bin2hex:inst10.segment[2]
+lowB[3] <= bin2hex:inst10.segment[3]
+lowB[4] <= bin2hex:inst10.segment[4]
+lowB[5] <= bin2hex:inst10.segment[5]
+lowB[6] <= bin2hex:inst10.segment[6]
+motor[0] <= Auto_manual_mux:inst13.motors_out[0]
+motor[1] <= Auto_manual_mux:inst13.motors_out[1]
+motor[2] <= Auto_manual_mux:inst13.motors_out[2]
+motor[3] <= Auto_manual_mux:inst13.motors_out[3]
+
+
+|rxtx|TX:inst6
+clk => tx_busy~reg0.CLK
+clk => tx_ser_out~reg0.CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+rst => process_1.IN1
+send => start.CLK
+data_in[0] => tx_ser_out.DATAB
+data_in[1] => tx_ser_out.DATAB
+data_in[2] => tx_ser_out.DATAB
+data_in[3] => tx_ser_out.DATAB
+data_in[4] => tx_ser_out.DATAB
+data_in[5] => tx_ser_out.DATAB
+data_in[6] => tx_ser_out.DATAB
+data_in[7] => tx_ser_out.DATAB
+tx_ser_out <= tx_ser_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tx_busy <= tx_busy~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|boud:inst
+clk_50MHz => f_out_tmp.CLK
+clk_50MHz => cnt[0].CLK
+clk_50MHz => cnt[1].CLK
+clk_50MHz => cnt[2].CLK
+clk_50MHz => cnt[3].CLK
+clk_50MHz => cnt[4].CLK
+clk_50MHz => cnt[5].CLK
+clk_50MHz => cnt[6].CLK
+clk_50MHz => cnt[7].CLK
+f_out <= f_out_tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|clkdiv:inst9
+clk => y~reg0.CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+clk => cnt[8].CLK
+clk => cnt[9].CLK
+clk => cnt[10].CLK
+clk => cnt[11].CLK
+clk => cnt[12].CLK
+clk => cnt[13].CLK
+clk => cnt[14].CLK
+clk => cnt[15].CLK
+clk => cnt[16].CLK
+clk => cnt[17].CLK
+clk => cnt[18].CLK
+clk => cnt[19].CLK
+clk => cnt[20].CLK
+clk => cnt[21].CLK
+clk => cnt[22].CLK
+clk => cnt[23].CLK
+clk => cnt[24].CLK
+clk => cnt[25].CLK
+y <= y~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|switch_display:inst21
+switch => data_out.OUTPUTSELECT
+switch => data_out.OUTPUTSELECT
+switch => data_out.OUTPUTSELECT
+switch => data_out.OUTPUTSELECT
+switch => data_out.OUTPUTSELECT
+switch => data_out.OUTPUTSELECT
+switch => data_out.OUTPUTSELECT
+switch => data_out.OUTPUTSELECT
+distance[0] => data_out.DATAA
+distance[1] => data_out.DATAA
+distance[2] => data_out.DATAA
+distance[3] => data_out.DATAA
+distance[4] => data_out.DATAA
+distance[5] => data_out.DATAA
+distance[6] => data_out.DATAA
+distance[7] => data_out.DATAA
+data_in[0] => data_out.DATAB
+data_in[1] => data_out.DATAB
+data_in[2] => data_out.DATAB
+data_in[3] => data_out.DATAB
+data_in[4] => data_out.DATAB
+data_in[5] => data_out.DATAB
+data_in[6] => data_out.DATAB
+data_in[7] => data_out.DATAB
+data_out[0] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|distance:inst18
+clk_58Ms => dist[0]~reg0.CLK
+clk_58Ms => dist[1]~reg0.CLK
+clk_58Ms => dist[2]~reg0.CLK
+clk_58Ms => dist[3]~reg0.CLK
+clk_58Ms => dist[4]~reg0.CLK
+clk_58Ms => dist[5]~reg0.CLK
+clk_58Ms => dist[6]~reg0.CLK
+clk_58Ms => dist[7]~reg0.CLK
+clk_58Ms => cnt[0].CLK
+clk_58Ms => cnt[1].CLK
+clk_58Ms => cnt[2].CLK
+clk_58Ms => cnt[3].CLK
+clk_58Ms => cnt[4].CLK
+clk_58Ms => cnt[5].CLK
+clk_58Ms => cnt[6].CLK
+clk_58Ms => cnt[7].CLK
+clk_58Ms => state~4.DATAIN
+echo => state.OUTPUTSELECT
+echo => state.OUTPUTSELECT
+echo => state.OUTPUTSELECT
+echo => cnt.OUTPUTSELECT
+echo => cnt.OUTPUTSELECT
+echo => cnt.OUTPUTSELECT
+echo => cnt.OUTPUTSELECT
+echo => cnt.OUTPUTSELECT
+echo => cnt.OUTPUTSELECT
+echo => cnt.OUTPUTSELECT
+echo => cnt.OUTPUTSELECT
+echo => Selector9.IN2
+echo => state.OUTPUTSELECT
+echo => state.OUTPUTSELECT
+echo => state.OUTPUTSELECT
+echo => Selector10.IN1
+dist[0] <= dist[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dist[1] <= dist[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dist[2] <= dist[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dist[3] <= dist[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dist[4] <= dist[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dist[5] <= dist[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dist[6] <= dist[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dist[7] <= dist[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|boudrate_echo:inst19
+clk_50MHz => f_out~reg0.CLK
+clk_50MHz => cnt[0].CLK
+clk_50MHz => cnt[1].CLK
+clk_50MHz => cnt[2].CLK
+clk_50MHz => cnt[3].CLK
+clk_50MHz => cnt[4].CLK
+clk_50MHz => cnt[5].CLK
+clk_50MHz => cnt[6].CLK
+clk_50MHz => cnt[7].CLK
+clk_50MHz => cnt[8].CLK
+clk_50MHz => cnt[9].CLK
+clk_50MHz => cnt[10].CLK
+clk_50MHz => cnt[11].CLK
+f_out <= f_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|pwm_servo:inst17
+clk_50MHz => Fout~reg0.CLK
+clk_50MHz => cnt[0].CLK
+clk_50MHz => cnt[1].CLK
+clk_50MHz => cnt[2].CLK
+clk_50MHz => cnt[3].CLK
+clk_50MHz => cnt[4].CLK
+clk_50MHz => cnt[5].CLK
+clk_50MHz => cnt[6].CLK
+clk_50MHz => cnt[7].CLK
+clk_50MHz => cnt[8].CLK
+clk_50MHz => cnt[9].CLK
+clk_50MHz => cnt[10].CLK
+clk_50MHz => cnt[11].CLK
+clk_50MHz => cnt[12].CLK
+clk_50MHz => cnt[13].CLK
+clk_50MHz => cnt[14].CLK
+clk_50MHz => cnt[15].CLK
+clk_50MHz => cnt[16].CLK
+clk_50MHz => cnt[17].CLK
+clk_50MHz => cnt[18].CLK
+clk_50MHz => cnt[19].CLK
+degree[0] => Mult0.IN17
+degree[1] => Mult0.IN16
+degree[2] => Mult0.IN15
+degree[3] => Mult0.IN14
+degree[4] => Mult0.IN13
+degree[5] => Mult0.IN12
+degree[6] => Mult0.IN11
+degree[7] => Mult0.IN10
+Fout <= Fout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|servo_degree:inst27
+clk_45Hz => state.CLK
+clk_45Hz => degree[0]~reg0.CLK
+clk_45Hz => degree[1]~reg0.CLK
+clk_45Hz => degree[2]~reg0.CLK
+clk_45Hz => degree[3]~reg0.CLK
+clk_45Hz => degree[4]~reg0.CLK
+clk_45Hz => degree[5]~reg0.CLK
+clk_45Hz => degree[6]~reg0.CLK
+clk_45Hz => degree[7]~reg0.CLK
+degree[0] <= degree[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+degree[1] <= degree[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+degree[2] <= degree[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+degree[3] <= degree[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+degree[4] <= degree[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+degree[5] <= degree[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+degree[6] <= degree[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+degree[7] <= degree[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|clk_div_20_Hz:inst16
+clk_50MHz => Fout~reg0.CLK
+clk_50MHz => cnt[0].CLK
+clk_50MHz => cnt[1].CLK
+clk_50MHz => cnt[2].CLK
+clk_50MHz => cnt[3].CLK
+clk_50MHz => cnt[4].CLK
+clk_50MHz => cnt[5].CLK
+clk_50MHz => cnt[6].CLK
+clk_50MHz => cnt[7].CLK
+clk_50MHz => cnt[8].CLK
+clk_50MHz => cnt[9].CLK
+clk_50MHz => cnt[10].CLK
+clk_50MHz => cnt[11].CLK
+clk_50MHz => cnt[12].CLK
+clk_50MHz => cnt[13].CLK
+clk_50MHz => cnt[14].CLK
+clk_50MHz => cnt[15].CLK
+clk_50MHz => cnt[16].CLK
+clk_50MHz => cnt[17].CLK
+clk_50MHz => cnt[18].CLK
+clk_50MHz => cnt[19].CLK
+Fout <= Fout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|freq_trig:inst20
+clk_50MHz => Fout~reg0.CLK
+clk_50MHz => cnt[0].CLK
+clk_50MHz => cnt[1].CLK
+clk_50MHz => cnt[2].CLK
+clk_50MHz => cnt[3].CLK
+clk_50MHz => cnt[4].CLK
+clk_50MHz => cnt[5].CLK
+clk_50MHz => cnt[6].CLK
+clk_50MHz => cnt[7].CLK
+clk_50MHz => cnt[8].CLK
+clk_50MHz => cnt[9].CLK
+clk_50MHz => cnt[10].CLK
+clk_50MHz => cnt[11].CLK
+clk_50MHz => cnt[12].CLK
+clk_50MHz => cnt[13].CLK
+clk_50MHz => cnt[14].CLK
+clk_50MHz => cnt[15].CLK
+clk_50MHz => cnt[16].CLK
+clk_50MHz => cnt[17].CLK
+clk_50MHz => cnt[18].CLK
+clk_50MHz => cnt[19].CLK
+clk_50MHz => cnt[20].CLK
+clk_50MHz => cnt[21].CLK
+Fout <= Fout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|piezo_control:inst29
+clk_50MHz => second[0].CLK
+clk_50MHz => second[1].CLK
+clk_50MHz => second[2].CLK
+clk_50MHz => second[3].CLK
+clk_50MHz => second[4].CLK
+clk_50MHz => second[5].CLK
+clk_50MHz => second[6].CLK
+clk_50MHz => second[7].CLK
+clk_50MHz => second[8].CLK
+clk_50MHz => second[9].CLK
+clk_50MHz => second[10].CLK
+clk_50MHz => second[11].CLK
+clk_50MHz => second[12].CLK
+clk_50MHz => second[13].CLK
+clk_50MHz => second[14].CLK
+clk_50MHz => second[15].CLK
+clk_50MHz => second[16].CLK
+clk_50MHz => second[17].CLK
+clk_50MHz => second[18].CLK
+clk_50MHz => second[19].CLK
+clk_50MHz => second[20].CLK
+clk_50MHz => second[21].CLK
+clk_50MHz => second[22].CLK
+clk_50MHz => second[23].CLK
+clk_50MHz => second[24].CLK
+clk_50MHz => second[25].CLK
+clk_50MHz => pwm_out~reg0.CLK
+clk_50MHz => state.CLK
+dist[0] => LessThan0.IN16
+dist[1] => LessThan0.IN15
+dist[2] => LessThan0.IN14
+dist[3] => LessThan0.IN13
+dist[4] => LessThan0.IN12
+dist[5] => LessThan0.IN11
+dist[6] => LessThan0.IN10
+dist[7] => LessThan0.IN9
+pwm_in => pwm_out.DATAB
+pwm_out <= pwm_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|piezo_freq:inst28
+clk_50MHz => fout~reg0.CLK
+clk_50MHz => cnt[0].CLK
+clk_50MHz => cnt[1].CLK
+clk_50MHz => cnt[2].CLK
+clk_50MHz => cnt[3].CLK
+clk_50MHz => cnt[4].CLK
+clk_50MHz => cnt[5].CLK
+clk_50MHz => cnt[6].CLK
+clk_50MHz => cnt[7].CLK
+clk_50MHz => cnt[8].CLK
+clk_50MHz => cnt[9].CLK
+clk_50MHz => cnt[10].CLK
+clk_50MHz => cnt[11].CLK
+clk_50MHz => cnt[12].CLK
+clk_50MHz => cnt[13].CLK
+clk_50MHz => cnt[14].CLK
+clk_50MHz => cnt[15].CLK
+clk_50MHz => cnt[16].CLK
+fout <= fout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|led:inst24
+dist[0] => LessThan0.IN16
+dist[1] => LessThan0.IN15
+dist[2] => LessThan0.IN14
+dist[3] => LessThan0.IN13
+dist[4] => LessThan0.IN12
+dist[5] => LessThan0.IN11
+dist[6] => LessThan0.IN10
+dist[7] => LessThan0.IN9
+led <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|bin2hex:inst4
+binin[0] => Mux0.IN19
+binin[0] => Mux1.IN19
+binin[0] => Mux2.IN19
+binin[0] => Mux3.IN19
+binin[0] => Mux4.IN19
+binin[0] => Mux5.IN19
+binin[0] => Mux6.IN19
+binin[1] => Mux0.IN18
+binin[1] => Mux1.IN18
+binin[1] => Mux2.IN18
+binin[1] => Mux3.IN18
+binin[1] => Mux4.IN18
+binin[1] => Mux5.IN18
+binin[1] => Mux6.IN18
+binin[2] => Mux0.IN17
+binin[2] => Mux1.IN17
+binin[2] => Mux2.IN17
+binin[2] => Mux3.IN17
+binin[2] => Mux4.IN17
+binin[2] => Mux5.IN17
+binin[2] => Mux6.IN17
+binin[3] => Mux0.IN16
+binin[3] => Mux1.IN16
+binin[3] => Mux2.IN16
+binin[3] => Mux3.IN16
+binin[3] => Mux4.IN16
+binin[3] => Mux5.IN16
+binin[3] => Mux6.IN16
+segment[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segment[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segment[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segment[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segment[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segment[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segment[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|half8:inst3
+byte[0] => low[0].DATAIN
+byte[1] => low[1].DATAIN
+byte[2] => low[2].DATAIN
+byte[3] => low[3].DATAIN
+byte[4] => high[0].DATAIN
+byte[5] => high[1].DATAIN
+byte[6] => high[2].DATAIN
+byte[7] => high[3].DATAIN
+high[0] <= byte[4].DB_MAX_OUTPUT_PORT_TYPE
+high[1] <= byte[5].DB_MAX_OUTPUT_PORT_TYPE
+high[2] <= byte[6].DB_MAX_OUTPUT_PORT_TYPE
+high[3] <= byte[7].DB_MAX_OUTPUT_PORT_TYPE
+low[0] <= byte[0].DB_MAX_OUTPUT_PORT_TYPE
+low[1] <= byte[1].DB_MAX_OUTPUT_PORT_TYPE
+low[2] <= byte[2].DB_MAX_OUTPUT_PORT_TYPE
+low[3] <= byte[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|my_rX:inst2
+rst => process_1.IN1
+clk => data_out[0]~reg0.CLK
+clk => data_out[1]~reg0.CLK
+clk => data_out[2]~reg0.CLK
+clk => data_out[3]~reg0.CLK
+clk => data_out[4]~reg0.CLK
+clk => data_out[5]~reg0.CLK
+clk => data_out[6]~reg0.CLK
+clk => data_out[7]~reg0.CLK
+clk => stopb.CLK
+clk => startb.CLK
+clk => rx_ready~reg0.CLK
+clk => buf[0].CLK
+clk => buf[1].CLK
+clk => buf[2].CLK
+clk => buf[3].CLK
+clk => buf[4].CLK
+clk => buf[5].CLK
+clk => buf[6].CLK
+clk => buf[7].CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+data_out[0] <= data_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= data_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= data_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= data_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= data_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= data_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= data_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= data_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_ser_in => startb.DATAB
+rx_ser_in => buf.DATAB
+rx_ser_in => buf.DATAB
+rx_ser_in => buf.DATAB
+rx_ser_in => buf.DATAB
+rx_ser_in => buf.DATAB
+rx_ser_in => buf.DATAB
+rx_ser_in => buf.DATAB
+rx_ser_in => buf.DATAB
+rx_ser_in => stopb.DATAB
+rx_ser_in => start.CLK
+rx_ready <= rx_ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|bin2hex:inst8
+binin[0] => Mux0.IN19
+binin[0] => Mux1.IN19
+binin[0] => Mux2.IN19
+binin[0] => Mux3.IN19
+binin[0] => Mux4.IN19
+binin[0] => Mux5.IN19
+binin[0] => Mux6.IN19
+binin[1] => Mux0.IN18
+binin[1] => Mux1.IN18
+binin[1] => Mux2.IN18
+binin[1] => Mux3.IN18
+binin[1] => Mux4.IN18
+binin[1] => Mux5.IN18
+binin[1] => Mux6.IN18
+binin[2] => Mux0.IN17
+binin[2] => Mux1.IN17
+binin[2] => Mux2.IN17
+binin[2] => Mux3.IN17
+binin[2] => Mux4.IN17
+binin[2] => Mux5.IN17
+binin[2] => Mux6.IN17
+binin[3] => Mux0.IN16
+binin[3] => Mux1.IN16
+binin[3] => Mux2.IN16
+binin[3] => Mux3.IN16
+binin[3] => Mux4.IN16
+binin[3] => Mux5.IN16
+binin[3] => Mux6.IN16
+segment[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segment[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segment[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segment[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segment[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segment[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segment[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|half8:inst7
+byte[0] => low[0].DATAIN
+byte[1] => low[1].DATAIN
+byte[2] => low[2].DATAIN
+byte[3] => low[3].DATAIN
+byte[4] => high[0].DATAIN
+byte[5] => high[1].DATAIN
+byte[6] => high[2].DATAIN
+byte[7] => high[3].DATAIN
+high[0] <= byte[4].DB_MAX_OUTPUT_PORT_TYPE
+high[1] <= byte[5].DB_MAX_OUTPUT_PORT_TYPE
+high[2] <= byte[6].DB_MAX_OUTPUT_PORT_TYPE
+high[3] <= byte[7].DB_MAX_OUTPUT_PORT_TYPE
+low[0] <= byte[0].DB_MAX_OUTPUT_PORT_TYPE
+low[1] <= byte[1].DB_MAX_OUTPUT_PORT_TYPE
+low[2] <= byte[2].DB_MAX_OUTPUT_PORT_TYPE
+low[3] <= byte[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|bin2hex:inst5
+binin[0] => Mux0.IN19
+binin[0] => Mux1.IN19
+binin[0] => Mux2.IN19
+binin[0] => Mux3.IN19
+binin[0] => Mux4.IN19
+binin[0] => Mux5.IN19
+binin[0] => Mux6.IN19
+binin[1] => Mux0.IN18
+binin[1] => Mux1.IN18
+binin[1] => Mux2.IN18
+binin[1] => Mux3.IN18
+binin[1] => Mux4.IN18
+binin[1] => Mux5.IN18
+binin[1] => Mux6.IN18
+binin[2] => Mux0.IN17
+binin[2] => Mux1.IN17
+binin[2] => Mux2.IN17
+binin[2] => Mux3.IN17
+binin[2] => Mux4.IN17
+binin[2] => Mux5.IN17
+binin[2] => Mux6.IN17
+binin[3] => Mux0.IN16
+binin[3] => Mux1.IN16
+binin[3] => Mux2.IN16
+binin[3] => Mux3.IN16
+binin[3] => Mux4.IN16
+binin[3] => Mux5.IN16
+binin[3] => Mux6.IN16
+segment[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segment[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segment[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segment[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segment[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segment[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segment[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|bin2hex:inst10
+binin[0] => Mux0.IN19
+binin[0] => Mux1.IN19
+binin[0] => Mux2.IN19
+binin[0] => Mux3.IN19
+binin[0] => Mux4.IN19
+binin[0] => Mux5.IN19
+binin[0] => Mux6.IN19
+binin[1] => Mux0.IN18
+binin[1] => Mux1.IN18
+binin[1] => Mux2.IN18
+binin[1] => Mux3.IN18
+binin[1] => Mux4.IN18
+binin[1] => Mux5.IN18
+binin[1] => Mux6.IN18
+binin[2] => Mux0.IN17
+binin[2] => Mux1.IN17
+binin[2] => Mux2.IN17
+binin[2] => Mux3.IN17
+binin[2] => Mux4.IN17
+binin[2] => Mux5.IN17
+binin[2] => Mux6.IN17
+binin[3] => Mux0.IN16
+binin[3] => Mux1.IN16
+binin[3] => Mux2.IN16
+binin[3] => Mux3.IN16
+binin[3] => Mux4.IN16
+binin[3] => Mux5.IN16
+binin[3] => Mux6.IN16
+segment[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segment[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segment[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segment[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segment[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segment[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segment[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|Auto_manual_mux:inst13
+auto_manual => motors_out.OUTPUTSELECT
+auto_manual => motors_out.OUTPUTSELECT
+auto_manual => motors_out.OUTPUTSELECT
+auto_manual => motors_out.OUTPUTSELECT
+manual_motors[0] => motors_out.DATAB
+manual_motors[1] => motors_out.DATAB
+manual_motors[2] => motors_out.DATAB
+manual_motors[3] => motors_out.DATAB
+auto_motors[0] => motors_out.DATAA
+auto_motors[1] => motors_out.DATAA
+auto_motors[2] => motors_out.DATAA
+auto_motors[3] => motors_out.DATAA
+motors_out[0] <= motors_out.DB_MAX_OUTPUT_PORT_TYPE
+motors_out[1] <= motors_out.DB_MAX_OUTPUT_PORT_TYPE
+motors_out[2] <= motors_out.DB_MAX_OUTPUT_PORT_TYPE
+motors_out[3] <= motors_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|spliter:inst11
+byte[0] => DC_MOTOR[0].DATAIN
+byte[1] => DC_MOTOR[1].DATAIN
+byte[2] => DC_MOTOR[2].DATAIN
+byte[3] => DC_MOTOR[3].DATAIN
+byte[4] => SERVO_MOTOR.DATAIN
+byte[5] => AUTO_MANUAL.DATAIN
+byte[6] => OTHER[0].DATAIN
+byte[7] => OTHER[1].DATAIN
+DC_MOTOR[0] <= byte[0].DB_MAX_OUTPUT_PORT_TYPE
+DC_MOTOR[1] <= byte[1].DB_MAX_OUTPUT_PORT_TYPE
+DC_MOTOR[2] <= byte[2].DB_MAX_OUTPUT_PORT_TYPE
+DC_MOTOR[3] <= byte[3].DB_MAX_OUTPUT_PORT_TYPE
+OTHER[0] <= byte[6].DB_MAX_OUTPUT_PORT_TYPE
+OTHER[1] <= byte[7].DB_MAX_OUTPUT_PORT_TYPE
+AUTO_MANUAL <= byte[5].DB_MAX_OUTPUT_PORT_TYPE
+SERVO_MOTOR <= byte[4].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|motor_movement:inst23
+pwm => motor_movement.DATAA
+pwm => motor_movement.DATAB
+pwm => motor_movement.DATAB
+pwm => motor_movement.DATAB
+pwm => motor_movement.DATAB
+pwm => motor_movement.DATAB
+pwm => motor_movement.DATAB
+motor_status[0] => Equal0.IN1
+motor_status[0] => Equal1.IN1
+motor_status[0] => Equal2.IN0
+motor_status[1] => Equal0.IN0
+motor_status[1] => Equal1.IN0
+motor_status[1] => Equal2.IN1
+distance[0] => LessThan0.IN16
+distance[1] => LessThan0.IN15
+distance[2] => LessThan0.IN14
+distance[3] => LessThan0.IN13
+distance[4] => LessThan0.IN12
+distance[5] => LessThan0.IN11
+distance[6] => LessThan0.IN10
+distance[7] => LessThan0.IN9
+motor_movement[0] <= motor_movement.DB_MAX_OUTPUT_PORT_TYPE
+motor_movement[1] <= motor_movement.DB_MAX_OUTPUT_PORT_TYPE
+motor_movement[2] <= motor_movement.DB_MAX_OUTPUT_PORT_TYPE
+motor_movement[3] <= motor_movement.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|pwm_motor:inst25
+clk_50MHz => clk_motor~reg0.CLK
+clk_50MHz => cnt1[0].CLK
+clk_50MHz => cnt1[1].CLK
+clk_50MHz => cnt1[2].CLK
+clk_50MHz => cnt1[3].CLK
+clk_50MHz => cnt1[4].CLK
+clk_50MHz => cnt1[5].CLK
+clk_50MHz => cnt1[6].CLK
+clk_50MHz => cnt1[7].CLK
+clk_50MHz => cnt1[8].CLK
+clk_50MHz => cnt1[9].CLK
+clk_50MHz => cnt1[10].CLK
+clk_50MHz => cnt1[11].CLK
+clk_50MHz => cnt1[12].CLK
+clk_50MHz => cnt2[0].CLK
+clk_50MHz => cnt2[1].CLK
+clk_50MHz => cnt2[2].CLK
+clk_50MHz => cnt2[3].CLK
+clk_50MHz => cnt2[4].CLK
+clk_50MHz => cnt2[5].CLK
+clk_50MHz => cnt2[6].CLK
+clk_50MHz => cnt2[7].CLK
+clk_50MHz => cnt2[8].CLK
+clk_50MHz => cnt2[9].CLK
+clk_50MHz => cnt2[10].CLK
+clk_50MHz => cnt2[11].CLK
+clk_50MHz => cnt2[12].CLK
+distance[0] => Mult0.IN15
+distance[1] => Mult0.IN14
+distance[2] => Mult0.IN13
+distance[3] => Mult0.IN12
+distance[4] => Mult0.IN11
+distance[5] => Mult0.IN10
+distance[6] => Mult0.IN9
+distance[7] => Mult0.IN8
+motor_status[0] => Equal0.IN1
+motor_status[0] => Equal1.IN1
+motor_status[0] => Equal2.IN0
+motor_status[1] => Equal0.IN0
+motor_status[1] => Equal1.IN0
+motor_status[1] => Equal2.IN1
+clk_motor <= clk_motor~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|car_status:inst22
+distance[0] => LessThan0.IN16
+distance[1] => LessThan0.IN15
+distance[2] => LessThan0.IN14
+distance[3] => LessThan0.IN13
+distance[4] => LessThan0.IN12
+distance[5] => LessThan0.IN11
+distance[6] => LessThan0.IN10
+distance[7] => LessThan0.IN9
+motor_status[0] <= motor_status[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+motor_status[1] <= motor_status[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+servo_status[0] => Equal0.IN1
+servo_status[0] => Equal1.IN1
+servo_status[0] => Equal2.IN0
+servo_status[1] => Equal0.IN0
+servo_status[1] => Equal1.IN0
+servo_status[1] => Equal2.IN1
+
+
+|rxtx|servo_status:inst26
+clk_50MHz => ~NO_FANOUT~
+degree[0] => LessThan0.IN16
+degree[0] => LessThan1.IN16
+degree[1] => LessThan0.IN15
+degree[1] => LessThan1.IN15
+degree[2] => LessThan0.IN14
+degree[2] => LessThan1.IN14
+degree[3] => LessThan0.IN13
+degree[3] => LessThan1.IN13
+degree[4] => LessThan0.IN12
+degree[4] => LessThan1.IN12
+degree[5] => LessThan0.IN11
+degree[5] => LessThan1.IN11
+degree[6] => LessThan0.IN10
+degree[6] => LessThan1.IN10
+degree[7] => LessThan0.IN9
+degree[7] => LessThan1.IN9
+servo_status[0] <= servo_status.DB_MAX_OUTPUT_PORT_TYPE
+servo_status[1] <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|rxtx|motor:inst12
+motor_in[0] => motor_out.IN0
+motor_in[1] => motor_out.IN0
+motor_in[2] => motor_out.IN0
+motor_in[3] => motor_out.IN0
+motor_out[0] <= motor_out.DB_MAX_OUTPUT_PORT_TYPE
+motor_out[1] <= motor_out.DB_MAX_OUTPUT_PORT_TYPE
+motor_out[2] <= motor_out.DB_MAX_OUTPUT_PORT_TYPE
+motor_out[3] <= motor_out.DB_MAX_OUTPUT_PORT_TYPE
+pwm_motor => motor_out.IN1
+pwm_motor => motor_out.IN1
+pwm_motor => motor_out.IN1
+pwm_motor => motor_out.IN1
+
+
+|rxtx|pwm:inst1
+clk_50MHz => fout~reg0.CLK
+clk_50MHz => cnt[0]~reg0.CLK
+clk_50MHz => cnt[1]~reg0.CLK
+clk_50MHz => cnt[2]~reg0.CLK
+clk_50MHz => cnt[3]~reg0.CLK
+clk_50MHz => cnt[4]~reg0.CLK
+clk_50MHz => cnt[5]~reg0.CLK
+clk_50MHz => cnt[6]~reg0.CLK
+clk_50MHz => cnt[7]~reg0.CLK
+clk_50MHz => cnt[8]~reg0.CLK
+clk_50MHz => cnt[9]~reg0.CLK
+clk_50MHz => cnt[10]~reg0.CLK
+clk_50MHz => cnt[11]~reg0.CLK
+clk_50MHz => cnt[12]~reg0.CLK
+fout <= fout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[0] <= cnt[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[1] <= cnt[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[2] <= cnt[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[3] <= cnt[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[4] <= cnt[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[5] <= cnt[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[6] <= cnt[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[7] <= cnt[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[8] <= cnt[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[9] <= cnt[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[10] <= cnt[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[11] <= cnt[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cnt[12] <= cnt[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
